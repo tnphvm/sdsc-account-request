@@ -4,7 +4,7 @@
    <!-- Favicon -->
    <link rel="shortcut icon" type="image/x-icon" href="">
 
-   <title>SDSC Account Requestion Form</title>
+   <title>SDSC Account Request Form</title>
 
    <!-- Required meta tags -->
    <meta charset="utf-8">
@@ -12,7 +12,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
    <!-- Custom CSS -->
    <link rel="stylesheet" href="css/main.css">
@@ -24,12 +24,230 @@
 </head>
 
 <body>
-   <p>Hello world!</p>
-   
+   <div class="container">
+      <h1>SDSC Account Request Ticket</h1>
+      <p>* All fields required</p>
+
+      <div class="form-module">
+         <form>
+           <div class="form-row">
+             <div class="form-group col-md-6">
+               <label for="inputNeededDate">Account Needed By</label>
+               <input type="date" class="form-control" id="inputNeededDate" >
+             </div>
+             <div class="form-group col-md-6">
+               <label for="inputEndDate">Account End/Close Date</label>
+               <input type="date" class="form-control" id="inputEndDate" >
+             </div>
+           </div> 
+         </form>
+      </div>
+
+      <div class="form-module">
+         <h2 class="form-header">Sponser Info</h2>
+         <form>
+           <div class="form-row">
+            <div class="form-group col-md-6">
+               <label for="inputSponserName">Sponser Name</label>
+               <input type="text" class="form-control" id="inputSponserName">
+            </div>
+              <div class="form-group col-md-6">
+                <label for="inputSponserEmail">Sponser Email</label>
+                <input type="email" class="form-control" id="inputSponserEmail">
+              </div>
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputSponserPhone">Sponser Phone Number</label>
+                  <input type="number" class="form-control" id="inputSponserPhone" placeholder="123-456-7890">
+                </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">Is sponser info different from submitter info?</div>
+               <div class="col-md-8">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="submitterInfo">
+                     <label class="form-check-label" for="submitterInfo"></label>
+                   </div>
+                </div>
+            </div>
+         </form>
+      </div>
+
+      <div class="form-module">
+         <h2 class="form-header">Submitter Info</h2>
+         <form>
+           <div class="form-row">
+            <div class="form-group col-md-6">
+               <label for="inputSubmitterName">Submitter Name</label>
+               <input type="text" class="form-control" id="inputSubmitterName">
+            </div>
+              <div class="form-group col-md-6">
+                <label for="inputSubmitterEmail">Submitter Email</label>
+                <input type="email" class="form-control" id="inputSubmitterEmail">
+              </div>
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputSubmitterPhone">Submitter Phone Number</label>
+                  <input type="number" class="form-control" id="inputSubmitterPhone" placeholder="123-456-7890">
+                </div>
+            </div>
+         </form>
+      </div>
+
+      <div class="form-module">
+         <h2 class="form-header">Recipient Info</h2>
+         <form>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientName">Recipient Name</label>
+                  <input type="text" class="form-control" id="inputRecipientName">
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientInstitution">Recipient Institution/Organization</label>
+                  <input type="text" class="form-control" id="inputRecipientInstitution">
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientPhone">Recipient Phone Number</label>
+                  <input type="number" class="form-control" id="inputRecipientPhone">
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientEmail">Recipient Email</label>
+                  <input type="email" class="form-control" id="inputRecipientEmail">
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientDept">Academic Department</label>
+                  <input type="text" class="form-control" id="inputRecipientDept">
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientTitle">Recipient Title</label>
+                  <input type="text" class="form-control" id="inputRecipientTitle">
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="inputRecipientAddress">Address</label>
+               <input type="text" class="form-control" id="inputRecipientAddress">
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputRecipientCity">City</label>
+                  <input type="text" class="form-control" id="inputRecipientCity">
+               </div>
+               <div class="form-group col-md-3">
+                  <label for="inputRecipientState">State</label>
+                  <input type="text" class="form-control" id="inputRecipientState">
+               </div>
+               <div class="form-group col-md-3">
+                  <label for="inputRecipientZip">Zip Code</label>
+                  <input type="number" class="form-control" id="inputRecipientZip">
+               </div>
+            </div>
+         </form>
+      </div>
+
+      <div class="form-module">
+         <h2 class="form-header">Account Info</h2>
+         <form>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputAccountType">Account Type</label>
+                  <select id="inputAccountType" class="form-control">
+                     <option selected>New UCSD Staff</option>
+                     <option>Existing UCSD Staff Account</option>
+                     <option>Non-UCSD Sponsored Account</option>
+                  </select>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="inputAccountType">Work Station Account Type</label>
+                  <select id="inputAccountType" class="form-control">
+                     <option selected>Windows</option>
+                     <option>UNIX</option>
+                     <option>Other</option>
+                  </select>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">
+                  <label for="inputWorkstationDesc">Other Description for Work Station</label>
+               </div>
+               <div class="col-md-8">
+                  <textarea class="form-control" rows="5" id="inputWorkstationDesc"></textarea>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <label for="inputUsername">Preferred Username</label>
+                  <input type="text" class="form-control" id="inputUsername">
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="inputAccountIndex">Index For Account Charge</label>
+                  <input type="text" class="form-control" id="inputAccountIndex">
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">Is this an undergraduate, student, or intern?</div>
+               <div class="col-md-8">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="isStudent">
+                     <label class="form-check-label" for="isStudent"></label>
+                   </div>
+                </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">UCSD Exchange Account Needed?</div>
+               <div class="col-md-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="isExchange">
+                     <label class="form-check-label" for="isExchange"></label>
+                   </div>
+                </div>
+            </div>
+         </form>
+      </div>
+
+      <div class="form-module">
+         <h2 class="form-header">Additional Info</h2>
+         <form>
+            <div class="form-group row">
+               <div class="col-md-4">
+                  <label for="inputAdditionalWS">Other Work Station Account Needed</label>
+               </div>
+               <div class="col-md-8">
+                  <textarea class="form-control" rows="5" id="inputAdditionalWS"></textarea>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">
+                  <label for="inputGroupInfo">Group Membership (AD, UNIX, etc.)</label>
+               </div>
+               <div class="col-md-8">
+                  <textarea class="form-control" rows="5" id="inputGroupInfo"></textarea>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="col-md-4">
+                  <label for="inputAdditionalInfo">Additional Details/Requests</label>
+               </div>
+               <div class="col-md-8">
+                  <textarea class="form-control" rows="5" id="inputAdditionalInfo"></textarea>
+               </div>
+            </div>
+         </form>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+   </div>
+
+
    <!-- JavaScript -->
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
