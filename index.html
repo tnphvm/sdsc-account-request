@@ -26,9 +26,9 @@
 <body>
    <div class="container">
       <h1>SDSC Account Request Ticket</h1>
-      <p>* All fields required</p>
+      <p>* All fields required unless marked optional</p>
 
-      <div class="form-module">
+      <div class="form-module" id="account-dates-module">
          <form>
            <div class="form-row">
              <div class="form-group col-md-6">
@@ -43,30 +43,30 @@
          </form>
       </div>
 
-      <div class="form-module">
-         <h2 class="form-header">Sponser Info</h2>
+      <div class="form-module" id="sponsor-module">
+         <h2 class="form-header">Sponsor Info</h2>
          <form>
            <div class="form-row">
             <div class="form-group col-md-6">
-               <label for="inputSponserName">Sponser Name</label>
-               <input type="text" class="form-control" id="inputSponserName">
+               <label for="inputSponsorName">Sponsor Name</label>
+               <input type="text" class="form-control" id="inputSponsorName">
             </div>
               <div class="form-group col-md-6">
-                <label for="inputSponserEmail">Sponser Email</label>
-                <input type="email" class="form-control" id="inputSponserEmail">
+                <label for="inputSponsorEmail">Sponsor Email</label>
+                <input type="email" class="form-control" id="inputSponsorEmail">
               </div>
            </div>
            <div class="form-row">
                <div class="form-group col-md-6">
-                  <label for="inputSponserPhone">Sponser Phone Number</label>
-                  <input type="number" class="form-control" id="inputSponserPhone" placeholder="123-456-7890">
+                  <label for="inputSponsorPhone">Sponsor Phone Number</label>
+                  <input type="number" class="form-control" id="inputSponsorPhone" placeholder="123-456-7890">
                 </div>
             </div>
             <div class="form-group row">
-               <div class="col-md-4">Is sponser info different from submitter info?</div>
+               <div class="col-md-4">Is Sponsor info different from submitter info?</div>
                <div class="col-md-8">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="submitterInfo">
+                    <input class="form-check-input" type="checkbox" value="" id="submitterInfo" onclick="showSubmitter()">
                      <label class="form-check-label" for="submitterInfo"></label>
                    </div>
                 </div>
@@ -74,7 +74,7 @@
          </form>
       </div>
 
-      <div class="form-module">
+      <div class="form-module" id="submitter-module">
          <h2 class="form-header">Submitter Info</h2>
          <form>
            <div class="form-row">
@@ -96,7 +96,7 @@
          </form>
       </div>
 
-      <div class="form-module">
+      <div class="form-module" id="recipient-module">
          <h2 class="form-header">Recipient Info</h2>
          <form>
             <div class="form-row">
@@ -150,7 +150,7 @@
          </form>
       </div>
 
-      <div class="form-module">
+      <div class="form-module" id="account-info-module">
          <h2 class="form-header">Account Info</h2>
          <form>
             <div class="form-row">
@@ -162,26 +162,47 @@
                      <option>Non-UCSD Sponsored Account</option>
                   </select>
                </div>
-               <div class="form-group col-md-6">
+<!--                <div class="form-group col-md-6">
                   <label for="inputAccountType">Work Station Account Type</label>
                   <select id="inputAccountType" class="form-control">
                      <option selected>Windows</option>
                      <option>UNIX</option>
                      <option>Other</option>
                   </select>
-               </div>
+               </div> -->
             </div>
             <div class="form-group row">
-               <div class="col-md-4">
+               <legend class="col-form-label col-sm-2">Work Station Account Type</legend>
+               <div class="col-sm-2">
+                 <div class="form-check">
+                   <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios1" value="option1" checked>
+                   <label class="form-check-label" for="gridRadios1">
+                     Windows
+                   </label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios2" value="option2">
+                   <label class="form-check-label" for="gridRadios2">
+                     UNIX
+                   </label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios3" value="option3">
+                   <label class="form-check-label" for="gridRadios3">
+                     Other
+                   </label>
+                 </div>
+               </div>
+               <div class="col-md-3">
                   <label for="inputWorkstationDesc">Other Description for Work Station</label>
                </div>
-               <div class="col-md-8">
+               <div class="col-md-5">
                   <textarea class="form-control" rows="5" id="inputWorkstationDesc"></textarea>
                </div>
             </div>
             <div class="form-row">
                <div class="form-group col-md-6">
-                  <label for="inputUsername">Preferred Username</label>
+                  <label for="inputUsername">Preferred Username (Optional)</label>
                   <input type="text" class="form-control" id="inputUsername">
                </div>
                <div class="form-group col-md-6">
@@ -210,17 +231,9 @@
          </form>
       </div>
 
-      <div class="form-module">
-         <h2 class="form-header">Additional Info</h2>
+      <div class="form-module" id="additonal-module">
+         <h2 class="form-header">Additional Info (Optional)</h2>
          <form>
-            <div class="form-group row">
-               <div class="col-md-4">
-                  <label for="inputAdditionalWS">Other Work Station Account Needed</label>
-               </div>
-               <div class="col-md-8">
-                  <textarea class="form-control" rows="5" id="inputAdditionalWS"></textarea>
-               </div>
-            </div>
             <div class="form-group row">
                <div class="col-md-4">
                   <label for="inputGroupInfo">Group Membership (AD, UNIX, etc.)</label>
