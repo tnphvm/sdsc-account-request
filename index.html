@@ -28,7 +28,7 @@
       <h1>SDSC Account Request Form</h1>
       <p id="instruction">* All fields required unless marked optional</p>
 
-      <form class="needs-validation" novalidate>
+      <form id="formRequest" class="needs-validation" novalidate>
       <div class="form-module" id="account-dates-module">
          <div class="form-row">
            <div class="form-group col-md-6">
@@ -40,63 +40,72 @@
            </div>
            <div class="form-group col-md-6">
              <label for="inputEndDate">Account End/Close Date</label>
-             <input type="date" class="form-control" id="inputEndDate" >
+             <input type="date" class="form-control" id="inputEndDate" required>
+             <div class="invalid-feedback">
+                Please choose an end date.
+             </div>
              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="infiniteEndDate" onclick="setInfiniteDate()">
+                <input class="form-check-input" type="checkbox" value="" id="infiniteEndDate" >
                 <label class="form-check-label" for="infiniteEndDate">Unsure/Indefinite</label>
              </div>
            </div>
          </div>
       </div>
 
-      <div class="form-module" id="sponsor-module">
+       <div class="form-module" id="sponsor-module">
          <h2 class="form-header">Sponsor Info</h2>
          <div class="form-row">
           <div class="form-group col-md-6">
              <label for="inputSponsorName">Sponsor Name</label>
              <input type="text" class="form-control" id="inputSponsorName" required>
              <div class="invalid-feedback">
-              Please enter a sponer name.
+              Please enter sponsor's name.
              </div>
           </div>
             <div class="form-group col-md-6">
               <label for="inputSponsorEmail">Sponsor Email</label>
-              <input type="email" class="form-control" id="inputSponsorEmail">
+              <input type="email" class="form-control" id="inputSponsorEmail" required>
+              <div class="invalid-feedback">
+                Please enter sponsor's email.
+              </div>
             </div>
          </div>
          <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputSponsorPhone">Sponsor Phone Number</label>
-                <input type="number" class="form-control" id="inputSponsorPhone" placeholder="123-456-7890">
+                <input type="number" class="form-control" id="inputSponsorPhone" placeholder="123-456-7890" required>
+                <div class="invalid-feedback">
+                  Please enter sponsor's phone number.
+                </div>
               </div>
           </div>
           <div class="form-group row">
              <div class="col-md-4">Is Sponsor info different from submitter info?</div>
              <div class="col-md-8">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="submitterInfo" onclick="showSubmitter()">
+                  <input class="form-check-input" type="checkbox" value="" id="submitterInfo" >
                    <label class="form-check-label" for="submitterInfo"></label>
                  </div>
               </div>
           </div>
       </div>
 
-      <div class="form-module" id="submitter-module">
+<!--      <div class="form-module" id="submitter-module">
          <h2 class="form-header">Submitter Info</h2>
          <div class="form-row">
           <div class="form-group col-md-6">
              <label for="inputSubmitterName">Submitter Name</label>
-             <input type="text" class="form-control" id="inputSubmitterName">
+             <input type="text" class="form-control" id="inputSubmitterName" disabled>
           </div>
             <div class="form-group col-md-6">
               <label for="inputSubmitterEmail">Submitter Email</label>
-              <input type="email" class="form-control" id="inputSubmitterEmail">
+              <input type="email" class="form-control" id="inputSubmitterEmail" disabled>
             </div>
          </div>
          <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputSubmitterPhone">Submitter Phone Number</label>
-                <input type="number" class="form-control" id="inputSubmitterPhone" placeholder="123-456-7890">
+                <input type="number" class="form-control" id="inputSubmitterPhone" placeholder="123-456-7890" disabled>
               </div>
           </div>
       </div>
@@ -106,49 +115,79 @@
           <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputRecipientName">Recipient Name</label>
-                <input type="text" class="form-control" id="inputRecipientName">
+                <input type="text" class="form-control" id="inputRecipientName" required>
+                <div class="invalid-feedback">
+                  Please enter recipient's name.
+                </div>
              </div>
              <div class="form-group col-md-6">
                 <label for="inputRecipientInstitution">Recipient Institution/Organization</label>
-                <input type="text" class="form-control" id="inputRecipientInstitution">
+                <input type="text" class="form-control" id="inputRecipientInstitution" required>
+                <div class="invalid-feedback">
+                  Please enter the recipient's institution or organization.
+                </div>
              </div>
           </div>
           <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputRecipientPhone">Recipient Phone Number</label>
-                <input type="number" class="form-control" id="inputRecipientPhone">
+                <input type="number" class="form-control" id="inputRecipientPhone" placeholder="123-456-7890" required>
+                <div class="invalid-feedback">
+                  Please enter recipient's phone number.
+                </div>
              </div>
              <div class="form-group col-md-6">
                 <label for="inputRecipientEmail">Recipient Email</label>
-                <input type="email" class="form-control" id="inputRecipientEmail">
+                <input type="email" class="form-control" id="inputRecipientEmail" required>
+                <div class="invalid-feedback">
+                  Please enter recipient's email.
+                </div>
              </div>
           </div>
           <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputRecipientDept">Academic Department</label>
-                <input type="text" class="form-control" id="inputRecipientDept">
+                <input type="text" class="form-control" id="inputRecipientDept" required>
+                <div class="invalid-feedback">
+                  Please enter an academic department.
+                </div>
              </div>
              <div class="form-group col-md-6">
                 <label for="inputRecipientTitle">Recipient Title</label>
-                <input type="text" class="form-control" id="inputRecipientTitle">
+                <input type="text" class="form-control" id="inputRecipientTitle" required>
+                <div class="invalid-feedback">
+                  Please enter recipient's title.
+                </div>
              </div>
           </div>
           <div class="form-group">
              <label for="inputRecipientAddress">Address</label>
-             <input type="text" class="form-control" id="inputRecipientAddress">
+             <input type="text" class="form-control" id="inputRecipientAddress" required>
+             <div class="invalid-feedback">
+              Please enter recipient's address.
+             </div>
           </div>
           <div class="form-row">
              <div class="form-group col-md-6">
                 <label for="inputRecipientCity">City</label>
-                <input type="text" class="form-control" id="inputRecipientCity">
+                <input type="text" class="form-control" id="inputRecipientCity" required>
+                <div class="invalid-feedback">
+                  Please enter the city associated with address.
+                </div>
              </div>
              <div class="form-group col-md-3">
                 <label for="inputRecipientState">State</label>
-                <input type="text" class="form-control" id="inputRecipientState">
+                <input type="text" class="form-control" id="inputRecipientState" required>
+                <div class="invalid-feedback">
+                  Please enter the state associated with address.
+                </div>
              </div>
              <div class="form-group col-md-3">
                 <label for="inputRecipientZip">Zip Code</label>
-                <input type="number" class="form-control" id="inputRecipientZip">
+                <input type="number" class="form-control" id="inputRecipientZip" required="">
+                <div class="invalid-feedback">
+                  Please enter the zip code associated with address.
+                </div>
              </div>
           </div>
       </div>
@@ -157,28 +196,23 @@
          <h2 class="form-header">Account Info</h2>
           <div class="form-row">
              <div class="form-group col-md-6">
-                <label for="inputAccountType">Account Type</label>
-                <select id="inputAccountType" class="form-control">
+                <label for="inputAccountType">Staff/Employee Type</label>
+                <select id="inputAccountType" class="form-control" required>
                     <option value="">Select an account type</option>
                     <option value="1">New UCSD Staff</option>
                     <option value="2">Existing UCSD Staff Account</option>
                     <option value="3">Non-UCSD Sponsored Account</option>
                 </select>
+                <div class="invalid-feedback">
+                  Please choose a staff/employee type.
+                </div>
              </div>
-<!--                <div class="form-group col-md-6">
-                <label for="inputAccountType">Work Station Account Type</label>
-                <select id="inputAccountType" class="form-control">
-                   <option selected>Windows</option>
-                   <option>UNIX</option>
-                   <option>Other</option>
-                </select>
-             </div> -->
           </div>
           <div class="form-group row">
-             <legend class="col-form-label col-sm-2">Work Station Account Type</legend>
+             <legend class="col-form-label col-sm-2">Account Type</legend>
              <div class="col-sm-2">
                <div class="form-check">
-                 <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios1" value="option1" checked>
+                 <input class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios1" value="option1">
                  <label class="form-check-label" for="gridRadios1">
                    Windows
                  </label>
@@ -210,7 +244,10 @@
              </div>
              <div class="form-group col-md-6">
                 <label for="inputAccountIndex">Index For Account Charge</label>
-                <input type="text" class="form-control" id="inputAccountIndex">
+                <input type="text" class="form-control" id="inputAccountIndex" required>
+                <div class="invalid-feedback">
+                  Please enter an index for the account.
+                </div>
              </div>
           </div>
           <div class="form-group row">
@@ -231,7 +268,7 @@
                  </div>
               </div>
           </div>
-      </div>
+      </div> -->
 
       <div class="form-module" id="additonal-module">
          <h2 class="form-header">Additional Info (Optional)</h2>
