@@ -36,6 +36,25 @@ $('#formRequest').submit(function(event) {
 });
 
 
+/* Event listener to apply validation attributes when there is not at least
+*  one checkbox for account types is not selected.
+*/
+$('[name="gridRadios"]').click(function() {
+   let accountTypes = document.getElementsByName("gridRadios");
+
+   if (this.checked) {
+      let checks = Array.prototype.filter.call(accountTypes, function(box) {
+         box.removeAttribute("required");
+      });
+   }
+   else {
+      let checks = Array.prototype.filter.call(accountTypes, function(box) {
+         box.setAttribute("required", "true");
+      });
+   }
+});
+
+
 /* Event listener to toggle the view of the submitter module.
 */
 $('#submitterInfo').click(function() {
