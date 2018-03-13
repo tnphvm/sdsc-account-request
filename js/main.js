@@ -27,7 +27,7 @@ $('#formRequest').submit(function(event) {
 
       if (allValid) {
          event.preventDefault();
-         retrieveData();
+         retrieveData(); nb 
          window.location.replace("/success-page.html");
       }
       else
@@ -41,17 +41,19 @@ $('#formRequest').submit(function(event) {
 */
 $('[name="gridRadios"]').click(function() {
    let accountTypes = document.getElementsByName("gridRadios");
+   let atLeastOne = false;
 
-   if (this.checked) {
-      let checks = Array.prototype.filter.call(accountTypes, function(box) {
+   let checkForOne = Array.prototype.filter.call(accountTypes, function(box) {
+      if (box.checked )
+         atLeastOne = true;
+   });
+
+   let applyAttr = Array.prototype.filter.call(accountTypes, function(box) {
+      if (atLeastOne)
          box.removeAttribute("required");
-      });
-   }
-   else {
-      let checks = Array.prototype.filter.call(accountTypes, function(box) {
+      else
          box.setAttribute("required", "true");
-      });
-   }
+   });
 });
 
 
@@ -98,27 +100,13 @@ $('#infiniteEndDate').click(function() {
 });
 
 
-// JavaScript way
-// function setInfiniteDate() {
-//    var checkBox = document.getElementById("infiniteEndDate");
-//    var endDateInput = document.getElementById("inputEndDate");
-
-//    if (checkBox.checked == true) {
-//       endDateInput.value = "9999-01-01";
-//       endDateInput.setAttribute("disabled", "");
-//    }
-//    else {
-//       endDateInput.value = "";
-//       endDateInput.removeAttribute("disabled");
-//    }
-// }
-
-
 /* Function to help retrieve all form data and organize the information
 *  into a readable block.
 */
 function retrieveData() {
    'use strict';
+   // TODO: Before appending everything, remember to attach a "brief description" for the ticket
+   // e.g. "SDSC ITSS Account Request". Double check with Ryan for specific desc.
 
    // console.log(document.getElementsByClassName("form-control"));
    // console.log($('.form-control:visible'));
