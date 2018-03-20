@@ -12,14 +12,16 @@ $('#formRequest').submit(function(event) {
    let forms = document.getElementsByClassName('needs-validation');
    let allValid = true;
 
-    let validation = Array.prototype.filter.call(forms, function(form) {
+   let validation = Array.prototype.filter.call(forms, function(form) {
       console.log("Executed");
 
       if (form.checkValidity() === false) {
          // console.log("Bad input");
+         alert("Invalid input(s). Please double check marked inputs.");
          allValid = false;
          event.preventDefault();
          event.stopPropagation();
+         $(window).scrollTop(0);
       }
 
       form.classList.add('was-validated');
@@ -27,7 +29,7 @@ $('#formRequest').submit(function(event) {
 
       if (allValid) {
          event.preventDefault();
-         retrieveData(); nb 
+         retrieveData();
          window.location.replace("/success-page.html");
       }
       else
@@ -108,19 +110,40 @@ function retrieveData() {
    // TODO: Before appending everything, remember to attach a "brief description" for the ticket
    // e.g. "SDSC ITSS Account Request". Double check with Ryan for specific desc.
 
-   // console.log(document.getElementsByClassName("form-control"));
-   // console.log($('.form-control:visible'));
-   var input = $('.form-control:visible');
-   var label = $('label:visible').not(".form-check-label");
+   let $input = $('.form-control:visible');
+   let $label = $('label:visible').not(".form-check-label");
 
-   if (input.length != label.length) {
+   if ($input.length != $label.length) {
       console.log("Lengths are different.");
       return;
    }
 
    for (let i = 0; i < input.length; i++) {
-      console.log(label[i].textContent + ": " + input[i].value);
+      console.log($label[i].textContent + ": " + $input[i].value);
    }
 
-   // TODO: Gather checkbox info & append to info block
+   // Gather checkbox info
+   let accountTypes = document.getElementsByName("gridRadios");
+   let accountStr = "Account Type: ";
+
+   for (let i = 0; i < accountTypes.length; i++) {
+      if (accountTypes[i].checked) {
+         accountStr += accountTypes[i].value;
+
+         if (i < (accountTypes.length - 2))
+            accountStr += ", ";
+      }
+   }
+
+   let studentStr = "Is this an undergraduate, student, or intern? ";
+   if (document.getElementById('isStudent').checked)
+      studentStr += "Yes";
+   else
+      studentStr += "No";
+
+   let exchangeStr = "UCSD Exchange Account Needed? ";
+   if (document.getElementById('isExchange').checked)
+      exchangeStr += "Yes";
+   else
+      exchangeStr += "No";
 }
