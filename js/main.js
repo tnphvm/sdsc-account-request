@@ -30,7 +30,7 @@ $('#formRequest').submit(function(event) {
       if (allValid) {
          event.preventDefault();
          retrieveData();
-         window.location.replace("/success-page.html");
+         window.location.replace("./success-page.html");
       }
       else
          return false;
