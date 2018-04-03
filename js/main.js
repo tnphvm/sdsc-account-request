@@ -118,7 +118,7 @@ function retrieveData() {
       return;
    }
 
-   for (let i = 0; i < input.length; i++) {
+   for (let i = 0; i < $input.length; i++) {
       console.log($label[i].textContent + ": " + $input[i].value);
    }
 
