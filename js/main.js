@@ -17,7 +17,7 @@ $('#formRequest').submit(function(event) {
 
       if (form.checkValidity() === false) {
          // console.log("Bad input");
-         alert("Invalid input(s). Please double check marked inputs.");
+         alert("Invalid input(s). Please double check marked value(s).");
          allValid = false;
          event.preventDefault();
          event.stopPropagation();
@@ -112,17 +112,24 @@ function retrieveData() {
 
    let $input = $('.form-control:visible');
    let $label = $('label:visible').not(".form-check-label");
+   let dataBody = "";
 
    if ($input.length != $label.length) {
       console.log("Lengths are different.");
       return;
    }
 
+   // Retrieve all input values
    for (let i = 0; i < $input.length; i++) {
-      console.log($label[i].textContent + ": " + $input[i].value);
+      let inputLine = $label[i].textContent + ": " + $input[i].value;
+      dataBody += inputLine;
+
+      if (i != ($input.length - 1))
+         dataBody += "\n";
    }
 
-   // Gather checkbox info
+   // Retrieve checkboxes' info
+   // Check account type(s)
    let accountTypes = document.getElementsByName("gridRadios");
    let accountStr = "Account Type: ";
 
@@ -135,15 +142,20 @@ function retrieveData() {
       }
    }
 
+   // Check student type
    let studentStr = "Is this an undergraduate, student, or intern? ";
    if (document.getElementById('isStudent').checked)
       studentStr += "Yes";
    else
       studentStr += "No";
 
+   // Check if exchange account needed
    let exchangeStr = "UCSD Exchange Account Needed? ";
    if (document.getElementById('isExchange').checked)
       exchangeStr += "Yes";
    else
       exchangeStr += "No";
+
+   dataBody += accountStr + "\n" + studentStr + "\n" + exchangeStr;
+   console.log(dataBody);
 }
