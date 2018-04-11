@@ -26,3 +26,7 @@
 #formSubmitBtn {
    margin-bottom: 20px;
 }
+
+#container-suc {
+   @include solidBorder(10px);
+}

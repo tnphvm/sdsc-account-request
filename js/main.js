@@ -3,10 +3,6 @@
 * and the page will be redirected to the success page.
 */
 $('#formRequest').submit(function(event) {
-   // event.preventDefault();
-   // console.log(event.defaultPrevented);
-
-   // window.location.replace("http://stackoverflow.com");
    console.log("Submit function");
 
    let forms = document.getElementsByClassName('needs-validation');
@@ -30,7 +26,8 @@ $('#formRequest').submit(function(event) {
       if (allValid) {
          event.preventDefault();
          retrieveData();
-         window.location.replace("./success-page.html");
+         // window.location.replace("./success-page.html");
+         console.log("Submission success!");
       }
       else
          return false;
@@ -121,7 +118,11 @@ function retrieveData() {
 
    // Retrieve all input values
    for (let i = 0; i < $input.length; i++) {
-      let inputLine = $label[i].textContent + ": " + $input[i].value;
+      let inputVal = $input[i].value;
+      if (!inputVal)
+         inputVal = "N/A";
+
+      let inputLine = $label[i].textContent + ": " + inputVal;
       dataBody += inputLine;
 
       if (i != ($input.length - 1))
