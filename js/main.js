@@ -13,7 +13,7 @@ $('#formRequest').submit(function(event) {
 
       if (form.checkValidity() === false) {
          // console.log("Bad input");
-         alert("Invalid input(s). Please double check marked value(s).");
+         alert("Invalid input(s). Please double check marked field(s).");
          allValid = false;
          event.preventDefault();
          event.stopPropagation();
@@ -26,7 +26,7 @@ $('#formRequest').submit(function(event) {
       if (allValid) {
          event.preventDefault();
          retrieveData();
-         // window.location.replace("./success-page.html");
+         window.location.replace("./success-page.html");
          console.log("Submission success!");
       }
       else

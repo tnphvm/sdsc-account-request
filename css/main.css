@@ -1,3 +1,6 @@
+html, body {
+  height: 100%; }
+
 .form-module {
   margin-bottom: 15px;
   padding-left: 15px;
@@ -7,16 +10,20 @@
 .form-header {
   border-bottom: 2px solid #000; }
 
+.form-title {
+  margin: 20px; }
+
 #submitter-module {
   display: none; }
 
+#title {
+  text-align: center; }
+
 #instruction {
-  color: #C83C3C; }
+  color: #C83C3C;
+  text-align: center; }
 
 #formSubmitBtn {
   margin-bottom: 20px; }
-
-#container-suc {
-  border: 10px solid #000; }
 
 /*# sourceMappingURL=main.css.map */

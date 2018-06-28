@@ -2,6 +2,10 @@
 
 @mixin solidBorder($thickness) { border: $thickness solid $black; }
 
+html, body {
+  height: 100%;
+}
+
 .form-module {
    margin-bottom: 15px;
    padding-left: 15px;
@@ -15,18 +19,24 @@
    border-bottom: 2px solid $black;
 }
 
+.form-title {
+   margin: 20px;
+}
+
 #submitter-module {
    display: none;
 }
 
+#title {
+   text-align: center;
+}
+
 #instruction {
    color: #C83C3C;
+   text-align: center;
 }
 
 #formSubmitBtn {
    margin-bottom: 20px;
 }
 
-#container-suc {
-   @include solidBorder(10px);
-}
